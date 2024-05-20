@@ -6,9 +6,9 @@ $del=$_REQUEST['vid'];
 $sql = "DELETE FROM tblstudent WHERE fldstudno='$del'";
 
 if ($conn->query($sql) === TRUE) {
-  echo "Record deleted successfully";
+  //echo "Record deleted successfully";
 } else {
-  echo "Error deleting record: " . $conn->error;
+  //echo "Error deleting record: " . $conn->error;
 }
 ?>
 <script>

@@ -1,7 +1,7 @@
 <?php
 require("include/conn.php");
 
-$vstudno=$_REQUEST['vid'];
+$vborrower=$_REQUEST['vid'];
 $vlastname="";
 $vfirstname="";
 

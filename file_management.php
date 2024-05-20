@@ -332,6 +332,9 @@
         </div>
         <!--END MENU SECTION -->
 
+<?php
+require("include/conn.php");
+?>
 
         <!--PAGE CONTENT -->
         <div id="content">
@@ -356,259 +359,71 @@
                                     <div class="col-lg-12">
                                         <div class="panel panel-default">
                                             <div class="panel-heading">
-                                                <h4>All Library Transactions</h4>
+                                                <h4 id="librarian">Master Table (Librarian)</h4>
                                             </div>
+                        
                                             <div class="panel-body">
                                                 <div class="table-responsive">
-                                                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                                    <table class="table table-striped table-bordered table-hover" id="dataTables-master">
                                                         <thead>
                                                             <tr>
-                                                                <th>Student no. #</th>
-                                                                <th>Name</th>
-                                                                <th>Books Borrowed</th>
-                                                                <th>Date Borrowed</th>
-                                                                <th>Date Returned</th>
+                                                                <th>Borrower Index</th>
+                                                                <th><a href="#listBooks">Book Number</th>
+                                                                <th><a href="#student">Student Number</th>
+                                                                <th><a href="#retri">Retrieval Status</th>
+                                                                <td colspan="2" align=center>
+                                                                    <button type="button" onClick="window.location.href='master_insert.php'">Insert</button>
+                                                                </td>
+                                                                
                                                             </tr>
                                                         </thead>
                                                         <tbody>
+    
+                                                        <?php
+                                                        $sql = "SELECT * FROM tbllibrarian order by fldborrower_index ";
+                                                        $result = $conn->query($sql);
+                                                        if($result->num_rows > 0) 
+                                                        {
+                                                        while($row = $result->fetch_assoc())
+                                                        {
+                
+                                                        $vborrower=$row['fldborrower_index'];			
+                                                        $vbooknum=$row['fldbooknum'];	
+                                                        $vstudnum=$row['fldstudnum'];
+                                                        $vretri=$row['fldretri'];
+                                                        ?>
+
                                                             <tr class="odd gradeX">
-                                                                <td>0000001</td>
-                                                                <td>John Micheal C. Doe</td>
-                                                                <td>The Perfect Son</td>
-                                                                <td class="center">04/11/2024</td>
-                                                                <td class="center"></td>
+                                                                <td>
+                                                                    <?php
+                                                                    echo $vborrower;
+                                                                    ?>
+                                                                </td>
+                                                                <td>
+                                                                    <?php
+                                                                    echo $row['fldbooknum'];
+                                                                    ?>
+                                                                </td>
+                                                                <td>
+                                                                    <?php
+                                                                    echo $row['fldstudnum'];
+                                                                    ?>
+                                                                </td>
+                                                                <td>
+                                                                    <?php
+                                                                    echo $row['fldretri'];
+                                                                    ?>
+                                                                </td>
+                                                                <td colspan="2" align=center>
+                                                                    <button type="button" onClick="window.location.href='master_delete.php?vid=<?php echo $vborrower; ?>'">Delete</button>
+                                                                </td>
                                                             </tr>
-                                                            <tr class="odd gradeX">
-                                                                <td>0000001</td>
-                                                                <td>John Micheal C. Doe</td>
-                                                                <td>The Perfect Son</td>
-                                                                <td class="center">04/11/2024</td>
-                                                                <td class="center"></td>
-                                                            </tr>
-                                                            <tr class="odd gradeX">
-                                                                <td>0000001</td>
-                                                                <td>John Micheal C. Doe</td>
-                                                                <td>The Perfect Son</td>
-                                                                <td class="center">04/11/2024</td>
-                                                                <td class="center"></td>
-                                                            </tr>
-                                                            <tr class="odd gradeX">
-                                                                <td>0000001</td>
-                                                                <td>John Micheal C. Doe</td>
-                                                                <td>The Perfect Son</td>
-                                                                <td class="center">04/11/2024</td>
-                                                                <td class="center"></td>
-                                                            </tr>
-                                                            <tr class="odd gradeX">
-                                                                <td>0000001</td>
-                                                                <td>John Micheal C. Doe</td>
-                                                                <td>The Perfect Son</td>
-                                                                <td class="center">04/11/2024</td>
-                                                                <td class="center"></td>
-                                                            </tr>
-                                                            <tr class="odd gradeX">
-                                                                <td>0000001</td>
-                                                                <td>John Micheal C. Doe</td>
-                                                                <td>The Perfect Son</td>
-                                                                <td class="center">04/11/2024</td>
-                                                                <td class="center"></td>
-                                                            </tr>
-                                                            <tr class="odd gradeX">
-                                                                <td>0000001</td>
-                                                                <td>John Micheal C. Doe</td>
-                                                                <td>The Perfect Son</td>
-                                                                <td class="center">04/11/2024</td>
-                                                                <td class="center"></td>
-                                                            </tr>
-                                                            <tr class="odd gradeX">
-                                                                <td>0000001</td>
-                                                                <td>John Micheal C. Doe</td>
-                                                                <td>The Perfect Son</td>
-                                                                <td class="center">04/11/2024</td>
-                                                                <td class="center"></td>
-                                                            </tr>
-                                                            <tr class="odd gradeX">
-                                                                <td>0000001</td>
-                                                                <td>John Micheal C. Doe</td>
-                                                                <td>The Perfect Son</td>
-                                                                <td class="center">04/11/2024</td>
-                                                                <td class="center"></td>
-                                                            </tr>
-                                                            <tr class="odd gradeX">
-                                                                <td>0000001</td>
-                                                                <td>John Micheal C. Doe</td>
-                                                                <td>The Perfect Son</td>
-                                                                <td class="center">04/11/2024</td>
-                                                                <td class="center"></td>
-                                                            </tr>
-                                                            <tr class="odd gradeX">
-                                                                <td>0000001</td>
-                                                                <td>John Micheal C. Doe</td>
-                                                                <td>The Perfect Son</td>
-                                                                <td class="center">04/11/2024</td>
-                                                                <td class="center"></td>
-                                                            </tr>
-                                                            <tr class="odd gradeX">
-                                                                <td>0000001</td>
-                                                                <td>John Micheal C. Doe</td>
-                                                                <td>The Perfect Son</td>
-                                                                <td class="center">04/11/2024</td>
-                                                                <td class="center"></td>
-                                                            </tr>
-                                                            <tr class="odd gradeX">
-                                                                <td>0000001</td>
-                                                                <td>John Micheal C. Doe</td>
-                                                                <td>The Perfect Son</td>
-                                                                <td class="center">04/11/2024</td>
-                                                                <td class="center"></td>
-                                                            </tr>
-                                                            <tr class="odd gradeX">
-                                                                <td>0000001</td>
-                                                                <td>John Micheal C. Doe</td>
-                                                                <td>The Perfect Son</td>
-                                                                <td class="center">04/11/2024</td>
-                                                                <td class="center"></td>
-                                                            </tr>
-                                                            <tr class="odd gradeX">
-                                                                <td>0000001</td>
-                                                                <td>John Micheal C. Doe</td>
-                                                                <td>The Perfect Son</td>
-                                                                <td class="center">04/11/2024</td>
-                                                                <td class="center"></td>
-                                                            </tr>
-                                                            <tr class="odd gradeX">
-                                                                <td>0000001</td>
-                                                                <td>John Micheal C. Doe</td>
-                                                                <td>The Perfect Son</td>
-                                                                <td class="center">04/11/2024</td>
-                                                                <td class="center"></td>
-                                                            </tr>
-                                                            <tr class="odd gradeX">
-                                                                <td>0000001</td>
-                                                                <td>John Micheal C. Doe</td>
-                                                                <td>The Perfect Son</td>
-                                                                <td class="center">04/11/2024</td>
-                                                                <td class="center"></td>
-                                                            </tr>
-                                                            <tr class="odd gradeX">
-                                                                <td>0000001</td>
-                                                                <td>John Micheal C. Doe</td>
-                                                                <td>The Perfect Son</td>
-                                                                <td class="center">04/11/2024</td>
-                                                                <td class="center"></td>
-                                                            </tr>
-                                                            <tr class="odd gradeX">
-                                                                <td>0000001</td>
-                                                                <td>John Micheal C. Doe</td>
-                                                                <td>The Perfect Son</td>
-                                                                <td class="center">04/11/2024</td>
-                                                                <td class="center"></td>
-                                                            </tr>
-                                                            <tr class="odd gradeX">
-                                                                <td>0000001</td>
-                                                                <td>John Micheal C. Doe</td>
-                                                                <td>The Perfect Son</td>
-                                                                <td class="center">04/11/2024</td>
-                                                                <td class="center"></td>
-                                                            </tr>
-                                                            <tr class="odd gradeX">
-                                                                <td>0000001</td>
-                                                                <td>John Micheal C. Doe</td>
-                                                                <td>The Perfect Son</td>
-                                                                <td class="center">04/11/2024</td>
-                                                                <td class="center"></td>
-                                                            </tr>
-                                                            <tr class="odd gradeX">
-                                                                <td>0000001</td>
-                                                                <td>John Micheal C. Doe</td>
-                                                                <td>The Perfect Son</td>
-                                                                <td class="center">04/11/2024</td>
-                                                                <td class="center"></td>
-                                                            </tr>
-                                                            <tr class="odd gradeX">
-                                                                <td>0000001</td>
-                                                                <td>John Micheal C. Doe</td>
-                                                                <td>The Perfect Son</td>
-                                                                <td class="center">04/11/2024</td>
-                                                                <td class="center"></td>
-                                                            </tr>
-                                                            <tr class="odd gradeX">
-                                                                <td>0000001</td>
-                                                                <td>John Micheal C. Doe</td>
-                                                                <td>The Perfect Son</td>
-                                                                <td class="center">04/11/2024</td>
-                                                                <td class="center"></td>
-                                                            </tr>
-                                                            <tr class="odd gradeX">
-                                                                <td>0000001</td>
-                                                                <td>John Micheal C. Doe</td>
-                                                                <td>The Perfect Son</td>
-                                                                <td class="center">04/11/2024</td>
-                                                                <td class="center"></td>
-                                                            </tr>
-                                                            <tr class="odd gradeX">
-                                                                <td>0000001</td>
-                                                                <td>John Micheal C. Doe</td>
-                                                                <td>The Perfect Son</td>
-                                                                <td class="center">04/11/2024</td>
-                                                                <td class="center"></td>
-                                                            </tr>
-                                                            <tr class="odd gradeX">
-                                                                <td>0000001</td>
-                                                                <td>John Micheal C. Doe</td>
-                                                                <td>The Perfect Son</td>
-                                                                <td class="center">04/11/2024</td>
-                                                                <td class="center"></td>
-                                                            </tr>
-                                                            <tr class="odd gradeX">
-                                                                <td>0000001</td>
-                                                                <td>John Micheal C. Doe</td>
-                                                                <td>The Perfect Son</td>
-                                                                <td class="center">04/11/2024</td>
-                                                                <td class="center"></td>
-                                                            </tr>
-                                                            <tr class="odd gradeX">
-                                                                <td>0000001</td>
-                                                                <td>John Micheal C. Doe</td>
-                                                                <td>The Perfect Son</td>
-                                                                <td class="center">04/11/2024</td>
-                                                                <td class="center"></td>
-                                                            </tr>
-                                                            <tr class="odd gradeX">
-                                                                <td>0000001</td>
-                                                                <td>John Micheal C. Doe</td>
-                                                                <td>The Perfect Son</td>
-                                                                <td class="center">04/11/2024</td>
-                                                                <td class="center"></td>
-                                                            </tr>
-                                                            <tr class="odd gradeX">
-                                                                <td>0000001</td>
-                                                                <td>John Micheal C. Doe</td>
-                                                                <td>The Perfect Son</td>
-                                                                <td class="center">04/11/2024</td>
-                                                                <td class="center"></td>
-                                                            </tr>
-                                                            <tr class="odd gradeX">
-                                                                <td>0000001</td>
-                                                                <td>John Micheal C. Doe</td>
-                                                                <td>The Perfect Son</td>
-                                                                <td class="center">04/11/2024</td>
-                                                                <td class="center"></td>
-                                                            </tr>
-                                                            <tr class="odd gradeX">
-                                                                <td>0000001</td>
-                                                                <td>John Micheal C. Doe</td>
-                                                                <td>The Perfect Son</td>
-                                                                <td class="center">04/11/2024</td>
-                                                                <td class="center"></td>
-                                                            </tr>
-                                                            <tr class="odd gradeX">
-                                                                <td>2022321781</td>
-                                                                <td>Yohann Nicholo C. Matibag</td>
-                                                                <td>To Infinity and Beyond</td>
-                                                                <td class="center">04/11/2024</td>
-                                                                <td class="center"></td>
-                                                            </tr>
+                                                            
+                                                        <?php
+                                                        }  
+                                                        }   
+                                                        ?>
+                                                            
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -617,8 +432,536 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 id="listBooks">List of Books</h4>
+                                            </div>
+                                            <div class="panel-body">
+                                                <div class="table-responsive">
+                                                    <table class="table table-striped table-bordered table-hover" id="dataTables-books">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Book Number</th>
+                                                                <th>Title</th>
+                                                                <th><a href="#listAuthors">Author Index</th>
+                                                                <th><a href="#listAvail">Availability Record</th>
+                                                                <td colspan="2" align=center>
+                                                                    <button type="button" onClick="window.location.href='book_insert.php'">Insert</button>
+                                                                </td>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+
+                                                        <?php
+                                                        $sql = "SELECT * FROM tblbooklist order by fldbooknum";
+                                                        $result = $conn->query($sql);
+                                                        if($result->num_rows > 0) 
+                                                        {
+                                                        while($row = $result->fetch_assoc())
+                                                        {
+                
+                                                        $vindex2=$row['fldbooknum'];			
+                                                        $vrow21=$row['fldtitle'];	
+                                                        $vrow22=$row['fldauthor_index'];
+                                                        $vrow23=$row['fldavail_record'];
+                                                        ?>
+
+                                                            <tr class="odd gradeX">
+                                                                <td>
+                                                                    <?php
+                                                                    echo $vindex2;
+                                                                    ?>
+                                                                </td>
+                                                                <td>
+                                                                    <?php
+                                                                    echo $row['fldtitle'];
+                                                                    ?>
+                                                                </td>
+                                                                <td>
+                                                                    <?php
+                                                                    echo $row['fldauthor_index'];
+                                                                    ?>
+                                                                </td>
+                                                                <td>
+                                                                    <?php
+                                                                    echo $row['fldavail_record'];
+                                                                    ?>
+                                                                </td>
+                                                                <!-- onClick needs specific webpages (WIP) -->
+                                                                <td>
+                                                                    <button type="button" onClick="window.location.href='book_update.php?vid=<?php echo $vindex2; ?>'">Edit</button>
+                                                                </td>
+                                                                <td>
+                                                                   <button type="button" onClick="window.location.href='book_delete.php?vid=<?php echo $vindex2; ?>'">Delete</button>
+                                                                </td>
+                                                                 <!-- onClick needs specific webpages (WIP) -->
+                                                            </tr>
+                                                            
+                                                        <?php
+                                                        }  
+                                                        }   
+                                                        ?>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 id="listAuthors">List of Authors</h4>
+                                            </div>
+                                            <div class="panel-body">
+                                                <div class="table-responsive">
+                                                    <table class="table table-striped table-bordered table-hover" id="dataTables-authors">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Author Index</th>
+                                                                <th><a href="#listBooks">Book Number</th>
+                                                                <th>Author</th>
+                                                                <td colspan="2" align=center>
+                                                                    <button type="button" onClick="window.location.href='author_insert.php'">Insert</button>
+                                                                </td>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+
+                                                        <?php
+                                                        $sql = "SELECT * FROM tblauthorlist order by fldauthor_index";
+                                                        $result = $conn->query($sql);
+                                                        if($result->num_rows > 0) 
+                                                        {
+                                                        while($row = $result->fetch_assoc())
+                                                        {
+                
+                                                        $vindex3=$row['fldauthor_index'];			
+                                                        $vrow31=$row['fldbooknum'];	
+                                                        $vrow32=$row['fldauthor'];
+                                                        ?>
+
+                                                            <tr class="odd gradeX">
+                                                                <td>
+                                                                    <?php
+                                                                    echo $vindex3;
+                                                                    ?>
+                                                                </td>
+                                                                <td>
+                                                                    <?php
+                                                                    echo $row['fldbooknum'];
+                                                                    ?>
+                                                                </td>
+                                                                <td>
+                                                                    <?php
+                                                                    echo $row['fldauthor'];
+                                                                    ?>
+                                                                </td>
+                                                                <!-- onClick needs specific webpages (WIP) -->
+                                                                <td>
+                                                                    <button type="button" onClick="window.location.href='author_update.php?vid=<?php echo $vindex3; ?>'">Edit</button>
+                                                                </td>
+                                                                <td>
+                                                                   <button type="button" onClick="window.location.href='author_delete.php?vid=<?php echo $vindex3; ?>'">Delete</button>
+                                                                </td>
+                                                                 <!-- onClick needs specific webpages (WIP) -->
+                                                            </tr>
+                                                            
+                                                        <?php
+                                                        }  
+                                                        }   
+                                                        ?>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 id="listAvail">List of Availability</h4>
+                                            </div>
+                                            <div class="panel-body">
+                                                <div class="table-responsive">
+                                                    <table class="table table-striped table-bordered table-hover" id="dataTables-availability">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Availability Record</th>
+                                                                <th><a href="#listBooks">Book Number</th>
+                                                                <th><a href="#availStat">Availability Status</th>
+                                                                <th><a href="#listDates">Date Index</th>
+                                                                <td colspan="2" align=center>
+                                                                    <button type="button" onClick="window.location.href='avail_insert.php'">Insert</button>
+                                                                </td>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+
+                                                        <?php
+                                                        $sql = "SELECT * FROM tblavailist order by fldavail_record";
+                                                        $result = $conn->query($sql);
+                                                        if($result->num_rows > 0) 
+                                                        {
+                                                        while($row = $result->fetch_assoc())
+                                                        {
+                
+                                                        $vindex4=$row['fldavail_record'];			
+                                                        $vrow41=$row['fldbooknum'];	
+                                                        $vrow42=$row['fldavailstat'];
+                                                        $vrow43=$row['flddate_code'];
+                                                        ?>
+
+                                                            <tr class="odd gradeX">
+                                                                <td>
+                                                                    <?php
+                                                                    echo $vindex4;
+                                                                    ?>
+                                                                </td>
+                                                                <td>
+                                                                    <?php
+                                                                    echo $row['fldbooknum'];
+                                                                    ?>
+                                                                </td>
+                                                                <td>
+                                                                    <?php
+                                                                    echo $row['fldavailstat'];
+                                                                    ?>
+                                                                </td>
+                                                                <td>
+                                                                    <?php
+                                                                    echo $row['flddate_code'];
+                                                                    ?>
+                                                                </td>
+                                                                <!-- onClick needs specific webpages (WIP) -->
+                                                                <td>
+                                                                    <button type="button" onClick="window.location.href='avail_update.php?vid=<?php echo $vindex4; ?>'">Edit</button>
+                                                                </td>
+                                                                <td>
+                                                                   <button type="button" onClick="window.location.href='avail_delete.php?vid=<?php echo $vindex4; ?>'">Delete</button>
+                                                                </td>
+                                                                 <!-- onClick needs specific webpages (WIP) -->
+                                                            </tr>
+                                                            
+                                                        <?php
+                                                        }  
+                                                        }   
+                                                        ?>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 id="availStat">Availability Status</h4>
+                                            </div>
+                                            <div class="panel-body">
+                                                <div class="table-responsive">
+                                                    <table class="table table-striped table-bordered table-hover" id="dataTables-availstatus">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Availability Index</th>
+                                                                <th>Status</th>
+                                                                <td colspan="2" align=center>
+                                                                    <button type="button" onClick="window.location.href='status_insert.php'">Insert</button>
+                                                                </td>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+
+                                                        <?php
+                                                        $sql = "SELECT * FROM tblstatus order by fldavailstat";
+                                                        $result = $conn->query($sql);
+                                                        if($result->num_rows > 0) 
+                                                        {
+                                                        while($row = $result->fetch_assoc())
+                                                        {
+                
+                                                        $vindex5=$row['fldavailstat'];			
+                                                        $vrow51=$row['fldstatus'];
+                                                        ?>
+
+                                                            <tr class="odd gradeX">
+                                                                <td>
+                                                                    <?php
+                                                                    echo $vindex5;
+                                                                    ?>
+                                                                </td>
+                                                                <td>
+                                                                    <?php
+                                                                    echo $row['fldstatus'];
+                                                                    ?>
+                                                                </td>
+                                                                <!-- onClick needs specific webpages (WIP) -->
+                                                                <td>
+                                                                    <button type="button" onClick="window.location.href='status_update.php?vid=<?php echo $vindex5; ?>'">Edit</button>
+                                                                </td>
+                                                                <td>
+                                                                   <button type="button" onClick="window.location.href='status_delete.php?vid=<?php echo $vindex5; ?>'">Delete</button>
+                                                                </td>
+                                                                 <!-- onClick needs specific webpages (WIP) -->
+                                                            </tr>
+                                                            
+                                                        <?php
+                                                        }  
+                                                        }   
+                                                        ?>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 id="listDates">Date List</h4>
+                                            </div>
+                                            <div class="panel-body">
+                                                <div class="table-responsive">
+                                                    <table class="table table-striped table-bordered table-hover" id="dataTables-date">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Date Index</th>
+                                                                <th>Return Due</th>
+                                                                <td colspan="2" align=center>
+                                                                    <button type="button" onClick="window.location.href='date_insert.php'">Insert</button>
+                                                                </td>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+
+                                                        <?php
+                                                        $sql = "SELECT * FROM tbldatelist order by flddate_code";
+                                                        $result = $conn->query($sql);
+                                                        if($result->num_rows > 0) 
+                                                        {
+                                                        while($row = $result->fetch_assoc())
+                                                        {
+                
+                                                        $vindex6=$row['flddate_code'];			
+                                                        $vrow61=$row['fldreturn'];
+                                                        ?>
+
+                                                            <tr class="odd gradeX">
+                                                                <td>
+                                                                    <?php
+                                                                    echo $vindex6;
+                                                                    ?>
+                                                                </td>
+                                                                <td>
+                                                                    <?php
+                                                                    echo $row['fldreturn'];
+                                                                    ?>
+                                                                </td>
+                                                                <!-- onClick needs specific webpages (WIP) -->
+                                                                <td>
+                                                                    <button type="button" onClick="window.location.href='date_update.php?vid=<?php echo $vindex6; ?>'">Edit</button>
+                                                                </td>
+                                                                <td>
+                                                                   <button type="button" onClick="window.location.href='date_delete.php?vid=<?php echo $vindex6; ?>'">Delete</button>
+                                                                </td>
+                                                                 <!-- onClick needs specific webpages (WIP) -->
+                                                            </tr>
+                                                            
+                                                        <?php
+                                                        }  
+                                                        }   
+                                                        ?>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 id="student">Borrowing Student Table</h4>
+                                            </div>
+                                            <div class="panel-body">
+                                                <div class="table-responsive">
+                                                    <table class="table table-striped table-bordered table-hover" id="dataTables-student">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Student no. #</th>
+                                                                <th>First Name</th>
+                                                                <th>Last Name</th>
+                                                                <th>Middle Initial</th>
+                                                                <td colspan="2" align=center>
+                                                                    <button type="button" onClick="window.location.href='student_insert.php'">Insert</button>
+                                                                </td>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+
+                                                        <?php
+                                                        $sql = "SELECT * FROM tblstudent order by fldstudindex";
+                                                        $result = $conn->query($sql);
+                                                        if($result->num_rows > 0) 
+                                                        {
+                                                        while($row = $result->fetch_assoc())
+                                                        {
+                                                    
+                                                        $vindex7=$row['fldstudnum'];			
+                                                        $vrow71=$row['fldfirstname'];	
+                                                        $vrow72=$row['fldlastname'];
+                                                        $vrow73=$row['fldmiddleinit'];
+                                                        ?>
+
+                                                            <tr class="odd gradeX">
+                                                                <td>
+                                                                    <?php
+                                                                    echo $vindex7;
+                                                                    ?>
+                                                                </td>
+                                                                <td>
+                                                                    <?php
+                                                                    echo $row['fldfirstname'];
+                                                                    ?>
+                                                                </td>
+                                                                <td>
+                                                                    <?php
+                                                                    echo $row['fldlastname'];
+                                                                    ?>
+                                                                </td>
+                                                                <td>
+                                                                    <?php
+                                                                    echo $row['fldmiddleinit'];
+                                                                    ?>
+                                                                </td>
+                                                                <!-- onClick needs specific webpages (WIP) -->
+                                                                <td>
+                                                                    <button type="button" onClick="window.location.href='student_update.php?vid=<?php echo $vindex7; ?>'">Edit</button>
+                                                                </td>
+                                                                <td>
+                                                                   <button type="button" onClick="window.location.href='student_delete.php?vid=<?php echo $vindex7; ?>'">Delete</button>
+                                                                </td>
+                                                                 <!-- onClick needs specific webpages (WIP) -->
+                                                            </tr>
+                                                            
+                                                        <?php
+                                                        }  
+                                                        }   
+                                                        ?>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 id="retri">Retrieval Log</h4>
+                                            </div>
+                                            <div class="panel-body">
+                                                <div class="table-responsive">
+                                                    <table class="table table-striped table-bordered table-hover" id="dataTables-retrieval">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Retrieval Code</th>
+                                                                <th><a href="#listDates">Date Code</th>
+                                                                <th>Date Recieved</th>
+                                                                <td colspan="2" align=center>
+                                                                    <button type="button" onClick="window.location.href='retri_insert.php'">Insert</button>
+                                                                </td>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+
+                                                        <?php
+                                                        $sql = "SELECT * FROM tblretrilog order by fldretrieval_index";
+                                                        $result = $conn->query($sql);
+                                                        if($result->num_rows > 0) 
+                                                        {
+                                                        while($row = $result->fetch_assoc())
+                                                        {
+                
+                                                        $vindex8=$row['fldretrieval_code'];			
+                                                        $vrow81=$row['flddate_code'];	
+                                                        $vrow82=$row['fldreceived'];
+                                                        ?>
+
+                                                            <tr class="odd gradeX">
+                                                                <td>
+                                                                    <?php
+                                                                    echo $vindex8;
+                                                                    ?>
+                                                                </td>
+                                                                <td>
+                                                                    <?php
+                                                                    echo $row['flddate_code'];
+                                                                    ?>
+                                                                </td>
+                                                                <td>
+                                                                    <?php
+                                                                    echo $row['fldreceived'];
+                                                                    ?>
+                                                                </td>
+                                                                <!-- onClick needs specific webpages (WIP) -->
+                                                                <td>
+                                                                    <button type="button" onClick="window.location.href='retri_update.php?vid=<?php echo $vindex8; ?>'">Edit</button>
+                                                                </td>
+                                                                <td>
+                                                                   <button type="button" onClick="window.location.href='retri_delete.php?vid=<?php echo $vindex8; ?>'">Delete</button>
+                                                                </td>
+                                                                 <!-- onClick needs specific webpages (WIP) -->
+                                                            </tr>
+                                                            
+                                                        <?php
+                                                        }  
+                                                        }   
+                                                        ?>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                
                         </div>
                     </div>
+                    
                 </div>
        <!--END PAGE CONTENT -->
 
@@ -642,7 +985,42 @@
     <script src="assets/plugins/dataTables/dataTables.bootstrap.js"></script>
      <script>
          $(document).ready(function () {
-             $('#dataTables-example').dataTable();
+             $('#dataTables-master').dataTable();
+         });
+    </script>
+    <script>
+         $(document).ready(function () {
+             $('#dataTables-books').dataTable();
+         });
+    </script>
+    <script>
+         $(document).ready(function () {
+             $('#dataTables-authors').dataTable();
+         });
+    </script>
+    <script>
+         $(document).ready(function () {
+             $('#dataTables-availability').dataTable();
+         });
+    </script>
+    <script>
+         $(document).ready(function () {
+             $('#dataTables-availstatus').dataTable();
+         });
+    </script>
+    <script>
+         $(document).ready(function () {
+             $('#dataTables-date').dataTable();
+         });
+    </script>
+    <script>
+         $(document).ready(function () {
+             $('#dataTables-student').dataTable();
+         });
+    </script>
+    <script>
+         $(document).ready(function () {
+             $('#dataTables-retrieval').dataTable();
          });
     </script>
      <!-- END PAGE LEVEL SCRIPTS -->
