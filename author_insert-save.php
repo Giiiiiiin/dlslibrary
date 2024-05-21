@@ -1,12 +1,11 @@
 <?php
 require("include/conn.php");
 
-$vindex3=$_POST['txtauthorind'];		
-$vrow31=$_POST['txtbooknum'];
+$vindex3=$_POST['txtauthorind'];	
 $vrow32=$_POST['txtauthor'];
 
 
-$sql="INSERT INTO tblauthorlist (fldauthor_index, fldbooknum, fldauthor) VALUES ('$vindex3', '$vrow31', '$vrow32')";
+$sql="INSERT INTO tblauthorlist (fldauthor_index, fldauthor) VALUES ('$vindex3', '$vrow32')";
 if ($conn->query($sql) === TRUE) 
 {
 } 

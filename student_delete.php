@@ -3,7 +3,7 @@ require("include/conn.php");
 
 $vstudnum=$_REQUEST['vid'];
 
-$sql = "SELECT * FROM tblstudent where fldstudnum='$vstudnum' order by fldstudnum";
+$sql = "SELECT * FROM tblstudent where fldstudnum='$vstudnum' order by fldstudindex";
 $result = $conn->query($sql);
 if($result->num_rows > 0) 
 {

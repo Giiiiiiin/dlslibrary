@@ -34,14 +34,6 @@ if($result->num_rows > 0)
         </tr>
         <tr>
             <td>
-              <label >Book Number:</label>  
-            </td>
-            <td>
-                <p><?php echo $vrow31; ?></p>                 
-            </td>
-        </tr>
-        <tr>
-            <td>
               <label >Enter Author Name: </label>  
             </td>
             <td>
@@ -51,7 +43,7 @@ if($result->num_rows > 0)
         <tr>
             <td colspan="2" align=center>
                 <button type="submit" >Update</button>
-                <button type="reset" onClick="history.back()'">Cancel</button>
+                <button type="reset" onClick="history.back()">Cancel</button>
             </td>
         </tr>
     </table>

@@ -4,7 +4,7 @@ require("include/conn.php");
 $vindex6=$_REQUEST['vid'];
 $vrow61="";
 
-$sql = "SELECT * FROM tbldatelist where flddate_code='$vindex6' order by flddate_code ";
+$sql = "SELECT * FROM tbldatelist where flddate_code='$vindex6' order by flddate_index ";
 $result = $conn->query($sql);
 if($result->num_rows > 0) 
 {

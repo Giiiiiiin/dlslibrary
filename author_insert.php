@@ -1,8 +1,7 @@
 <?php
 require("include/conn.php");
 
-$vindex3="";			
-$vrow31="";
+$vindex3="";		
 $vrow32="";
 
 ?>
@@ -19,14 +18,6 @@ $vrow32="";
             </td>
             <td>
                 <input type="text" id="txtauthorind" name="txtauthorind" value="<?php echo $vindex3; ?>"/>                       
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <label >Enter Book Number: </label>  
-            </td>
-            <td>
-                <input type="text" id="txtbooknum" name="txtbooknum" value="<?php echo $vrow31; ?>"/>                       
             </td>
         </tr>
         <tr>

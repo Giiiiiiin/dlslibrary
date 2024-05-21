@@ -358,10 +358,17 @@ require("include/conn.php");
                                     <div class="row">
                                     <div class="col-lg-12">
                                         <div class="panel panel-default">
+                                        
                                             <div class="panel-heading">
+                                            <div class="col-lg-8">
                                                 <h4 id="librarian">Master Table (Librarian)</h4>
                                             </div>
-                        
+                                            <div class="col-lg-4" align=right>
+                                                <button type="button" onClick="window.location.href='master_book.php'">Quick Book Insert</button>
+    
+                                                <button type="button" onClick="window.location.href='master_borrow.php'">Quick Borrower Insert</button>
+                                            </div>
+                                        </div>
                                             <div class="panel-body">
                                                 <div class="table-responsive">
                                                     <table class="table table-striped table-bordered table-hover" id="dataTables-master">
@@ -526,7 +533,6 @@ require("include/conn.php");
                                                         <thead>
                                                             <tr>
                                                                 <th>Author Index</th>
-                                                                <th><a href="#listBooks">Book Number</th>
                                                                 <th>Author</th>
                                                                 <td colspan="2" align=center>
                                                                     <button type="button" onClick="window.location.href='author_insert.php'">Insert</button>
@@ -543,8 +549,7 @@ require("include/conn.php");
                                                         while($row = $result->fetch_assoc())
                                                         {
                 
-                                                        $vindex3=$row['fldauthor_index'];			
-                                                        $vrow31=$row['fldbooknum'];	
+                                                        $vindex3=$row['fldauthor_index'];		
                                                         $vrow32=$row['fldauthor'];
                                                         ?>
 
@@ -552,11 +557,6 @@ require("include/conn.php");
                                                                 <td>
                                                                     <?php
                                                                     echo $vindex3;
-                                                                    ?>
-                                                                </td>
-                                                                <td>
-                                                                    <?php
-                                                                    echo $row['fldbooknum'];
                                                                     ?>
                                                                 </td>
                                                                 <td>
@@ -747,7 +747,7 @@ require("include/conn.php");
                                                     <table class="table table-striped table-bordered table-hover" id="dataTables-date">
                                                         <thead>
                                                             <tr>
-                                                                <th>Date Index</th>
+                                                                <th>Date Code</th>
                                                                 <th>Return Due</th>
                                                                 <td colspan="2" align=center>
                                                                     <button type="button" onClick="window.location.href='date_insert.php'">Insert</button>

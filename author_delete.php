@@ -9,7 +9,6 @@ if($result->num_rows > 0)
 {
     while($row = $result->fetch_assoc())
     {
-        $vrow31=$row['fldbooknum'];
         $vrow32=$row['fldauthor'];  
     }
 }
