@@ -391,7 +391,13 @@
                     <label for="text1" class="control-label col-lg-4">Student Name</label>
 
                     <div class="col-lg-5">
-                        <input type="text" id="text1" placeholder="Type full name" class="form-control" />
+                        <input type="text" id="text1" placeholder="Type first name" class="form-control" />
+                    </div>
+                    <div class="col-lg-5">
+                        <input type="text" id="text1" placeholder="Type middle" class="form-control" />
+                    </div>
+                    <div class="col-lg-5">
+                        <input type="text" id="text1" placeholder="Type last name" class="form-control" />
                     </div>
                 </div>
 
@@ -403,25 +409,6 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="pass1" class="control-label col-lg-4">Student Email</label>
-
-                    <div class="col-lg-5">
-                        <input type="text" id="text1" placeholder="Type student email" class="form-control" />
-                    </div>
-                </div>
-
-                <div class="form-group">
-                
-                        <label class="control-label col-lg-4">Phone</label>
-
-                        <div class="col-lg-4">
-                            <div class="input-group">
-                                <input class="form-control" type="text" data-mask="(999) 999-9999" />
-                                <span class="input-group-addon">(999) 999-9999</span>
-                            </div>
-                    </div>
-                </div>
                     <div id="dateRangePickerBlock" class="body collapse in">
                         <form class="form-horizontal">
                             <div class="form-group">
